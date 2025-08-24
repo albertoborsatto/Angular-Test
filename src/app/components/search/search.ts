@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ClientsTable } from '../clients-table/clients-table';
@@ -11,13 +11,17 @@ import { Client } from '../../models/client';
   templateUrl: './search.html',
   styleUrl: './search.css',
 })
-export class Search {
+export class Search implements OnInit {
   private _clientService: ClientService;
   private _clientsData: Client[] = [];
 
   constructor(clientService: ClientService) {
     this._clientService = clientService;
-    this._clientsData = this._clientService.getAllClients();
+  }
+
+  ngOnInit(): void {
+    const clientes = this._clientService.getAllClients();
+    this._clientsData = clientes;
   }
 
   get clientsData(): Client[] {

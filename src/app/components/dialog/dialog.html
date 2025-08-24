@@ -1,0 +1,24 @@
+@if (tableAction === TableAction.Delete) {
+<h2 mat-dialog-title>Confirm Deletion</h2>
+} @else if (tableAction === TableAction.Update) {
+<h2 mat-dialog-title>Update Client</h2>
+}
+<mat-dialog-content>
+  @if (client) {
+  <ul>
+    <li>Name: {{ client.name }}</li>
+    <li>Email: {{ client.email }}</li>
+    <li>CPF: {{ client.cpf }}</li>
+    <li>Birthdate: {{ client.birthdate }}</li>
+  </ul>
+  } @else {
+  <p>Are you sure you want to update this client?</p>
+  }
+</mat-dialog-content>
+<mat-dialog-actions>
+  @for (action of actions; track action) {
+  <button matButton="tonal" [mat-dialog-close]="action">
+    {{ action }}
+  </button>
+  }
+</mat-dialog-actions>

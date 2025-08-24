@@ -5,9 +5,9 @@ export class Client {
   name?: string;
   email?: string;
   cpf?: string;
-  birthdate?: Date;
+  birthdate?: string;
 
-  constructor(name: string, email: string, cpf: string, birthdate: Date) {
+  constructor(name: string, email: string, cpf: string, birthdate: string) {
     this.id = uuidv4();
     this.name = name;
     this.email = email;
@@ -21,6 +21,6 @@ export class Client {
       Name: ${this.name}
       Email: ${this.email}
       CPF: ${this.cpf}
-      Birthdate: ${this.birthdate?.toDateString()}`);
+      Birthdate: ${this.birthdate}`);
   }
 }

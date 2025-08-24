@@ -1,10 +1,10 @@
 <div class="container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Fill in your details</mat-card-title>
+      <mat-card-title>Client details</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form [formGroup]="useForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="useForm" (ngSubmit)="updateClient()">
         <mat-form-field>
           <mat-label>Nome</mat-label>
           <input matInput formControlName="name" placeholder="Digite seu nome" />
@@ -29,7 +29,10 @@
           </mat-form-field>
         </div>
         <mat-card-actions>
-          <button matButton="tonal">Enviar</button>
+          <button id="editButton" type="button" matButton="tonal" (click)="enableInputs()">
+            Edit
+          </button>
+          <button type="submit" id="updateButton" matButton="tonal">Update</button>
         </mat-card-actions>
       </form>
     </mat-card-content>
