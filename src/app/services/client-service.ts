@@ -60,11 +60,24 @@ export class ClientService {
       const client = this.getClientById(id);
 
       if (client) {
-        const newClient = { ... updatedClient, id: id };
+        const newClient = { ...updatedClient, id: id };
         localStorage.setItem(id, JSON.stringify(newClient));
       }
     } catch (error) {
       console.error('Error updating client in localStorage', error);
+    }
+  }
+
+  filterClientsByName(name: string): Client[] {
+    const clientName = name.toLowerCase().trim();
+
+    try {
+      const allClients = this.getAllClients();
+
+      return allClients.filter((client) => client.name!.toLowerCase().includes(clientName));
+    } catch (error) {
+      console.error('Error filtering clients by name', error);
+      return [];
     }
   }
 }

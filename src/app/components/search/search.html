@@ -1,3 +1,6 @@
 <div class="container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <app-search-input formControlName="search"></app-search-input>
+  </form>
   <app-clients-table [clientsData]="clientsData"></app-clients-table>
 </div>

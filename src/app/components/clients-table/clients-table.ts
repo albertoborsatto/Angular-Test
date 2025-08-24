@@ -67,6 +67,7 @@ export class ClientsTable implements OnInit {
       const client = this._clientService.getClientById(clientId);
 
       if (client) {
+        client.birthdate = formatDateBR(client.birthdate!);
         const dialogRef = this._dialogService.open(
           clientId,
           ['Confirm', 'Cancel'],

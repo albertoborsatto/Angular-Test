@@ -1,0 +1,8 @@
+<div class="container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search Clients</mat-label>
+    <input matInput [value]="search" (input)="onChangeValue($event)" (blur)="onTouched()" />
+  </mat-form-field>
+
+  <button mat-flat-button color="primary">Search</button>
+</div>
